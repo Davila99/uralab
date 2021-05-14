@@ -51,3 +51,30 @@ class Laboratorio(models.Model):
 
     def __str__(self):
         return self.laboratorio
+
+# Catalogos-Modelos inventario
+
+class Marca(models.Model):
+    marca = models.CharField(max_length=70)
+
+    def __str__(self):
+        return self.marca
+
+class Modelo(models.Model):
+    modelo = models.CharField(max_length=70)
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.modelo
+
+class Color(models.Model):
+    color = models.CharField(max_length=70)
+
+    def __str__(self):
+        return self.color
+
+class Estado(models.Model):
+    estado = models.CharField(max_length=70)
+
+    def __str__(self):
+        return self.estado
